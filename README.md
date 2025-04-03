@@ -35,3 +35,40 @@ The system is designed to be integrated into video streaming platforms, where it
 
 
 ## Example of Code:
+import math
+import random
+import numpy as np
+import io
+from io import StringIO
+import numpy as np
+
+x_train = np.random.rand(10, 3)   # generate 10 random vectors of dimension 3
+x_test = np.random.rand(3)        # generate one more random vector of the same dimension
+
+def dist(a, b):
+    sum = 0
+    for ai, bi in zip(a, b):
+        sum = sum + (ai - bi)**2
+    return np.sqrt(sum)
+    
+def nearest(x_train, x_test):
+    nearest = -1
+    min_distance = np.Inf
+    # add a loop here that goes through all the vectors in x_train and finds the one that
+    # is nearest to x_test. return the index (between 0, ..., len(x_train)-1) of the nearest
+    # neighbor
+    for x in range(len(x_train)):
+        # Compute the distance between x_test and the current training vector
+        distance = dist(x_train[x], x_test)
+        # If the current distance is smaller than the minimum distance, update
+        if distance<min_distance:
+            min_distance=distance
+            nearest = x  # Store the index of the nearest vector
+    print(nearest)
+
+nearest(x_train, x_test)
+
+
+
+
+#this code is similar to the code i will be using in my algorithm as it uses similar shapes. this code could be an analogy of finding similar videos to the previous video just watched etc.
